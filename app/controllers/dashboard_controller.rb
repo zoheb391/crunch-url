@@ -1,7 +1,8 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
+    @my_urls = my_urls
   end
 
   def my_urls

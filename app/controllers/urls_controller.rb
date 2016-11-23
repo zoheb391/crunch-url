@@ -8,8 +8,9 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.create(url_params)
+    @url = current_user.urls.create(url_params)
     if @url.valid?
+      @url.save
       redirect_to root_path
     else 
       render :new, :status => :unprocessable_entity

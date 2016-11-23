@@ -1,5 +1,18 @@
 <h1> This is your dashboard <h1>
+
 <table>
-<td>1</td>
-<tr>1</tr>
+<td></td>
+
+<% if @my_urls.present? %>
+  <h2>My URLS</h2>
+  <% @my_urls.each do |my_url| %>
+    <%= link_to my_url.target, my_url.target %>
+    <br />
+    <%= link_to "http://crunch-url.herokuapp.com/#{my_url.id}", my_url.target %>
+    <br />
+    <br />
+  <% end %>
+<% end %>
+
+
 </table>
