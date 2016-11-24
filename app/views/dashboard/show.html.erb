@@ -8,7 +8,7 @@
   <% @my_urls.each do |my_url| %>
     <%= link_to my_url.target, my_url.target %>
     <br />
-    <%= link_to "http://crunch-url.herokuapp.com/#{my_url.id}", my_url.target %>
+    <%= "http://crunch-url.herokuapp.com/urls/#{my_url.id}" %>
     <br />
     <br />
   <% end %>
