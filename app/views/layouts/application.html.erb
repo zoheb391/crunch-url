@@ -18,6 +18,13 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+      <!-- Button Trigger -->
+          <% if user_signed_in? %>
+            <li><%= link_to 'NEW URL', '#', :data => {:toggle => 'modal', :target => '#myModal'} %></li>
+          <% end %>
+        </ul>
+      
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to 'DASHBOARD', dashboard_path(current_user) %></li>
@@ -37,6 +44,27 @@
 <% if alert.present? %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Shorten URL</h4>
+        </div>
+        <%= simple_form_for Url.new do |f| %>
+        <div class="modal-body">
+          <%= f.input :target,  :label => "Enter URL" %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Shorten', :class => 'btn btn-danger' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 
 <%= yield %>
 

@@ -11,7 +11,7 @@ class UrlsController < ApplicationController
     @url = current_user.urls.create(url_params)
     if @url.valid?
       @url.save
-      redirect_to root_path
+      redirect_to dashboard_path(current_user)
     else 
       render :new, :status => :unprocessable_entity
     end
