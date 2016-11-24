@@ -6,9 +6,9 @@
 <% if @my_urls.present? %>
   <h2>My URLS</h2>
   <% @my_urls.each do |my_url| %>
-    <%= link_to my_url.target, my_url.target %>
+    <%= my_url.target %>
     <br />
-    <%= "http://crunch-url.herokuapp.com/urls/#{my_url.id}" %>
+    <%= "localhost:3030/#{my_url.shortcut}" %>
     <br />
     <br />
   <% end %>

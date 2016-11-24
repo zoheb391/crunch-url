@@ -4,10 +4,10 @@ class UrlsController < ApplicationController
   end
 
   def show
-    @url = Url.find(params[:id])
+    @url = Url.find_by_shortcut!(params[:shortcut])
     redirect_to @url.target
   end
-
+  
   def new
     @url = Url.new
   end
@@ -18,6 +18,7 @@ class UrlsController < ApplicationController
       @url.save
       redirect_to dashboard_path(current_user)
     else 
+      flash[:notice] = "Please use http:// or https://"
       render :new, :status => :unprocessable_entity
     end
   end

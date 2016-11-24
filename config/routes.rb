@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   resources :urls
   resources :dashboard, only: [:show]
+  get "/:shortcut", to: "urls#show"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
