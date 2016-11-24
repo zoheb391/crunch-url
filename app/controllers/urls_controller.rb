@@ -3,6 +3,11 @@ class UrlsController < ApplicationController
     @urls = Url.all
   end
 
+  def show
+    @url = Url.find(params[:id])
+    redirect_to @url.target
+  end
+
   def new
     @url = Url.new
   end
