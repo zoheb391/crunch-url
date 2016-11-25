@@ -3,10 +3,10 @@ class Url < ActiveRecord::Base
 
   validates :target, :length => { minimum:5 }, :format => URI::regexp(%w(http https)), :presence => true
   validates :target, :uniqueness => true
-  before_create :create_shortcut
+  after_create :create_shortcut
 
   def create_shortcut
-    self.shortcut = "abcde"
+    update_attribute(:shortcut, self.id.to_s(36))
   end
 
 end
