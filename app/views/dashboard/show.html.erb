@@ -10,7 +10,7 @@
       <% @my_urls.each do |my_url| %>
           <tr>
             <td><%= my_url.target %></td>
-            <td><%= "crunch-url.herokuapp.com/#{my_url.shortcut}" %></td>
+            <td><%= link_to "crunch-url.herokuapp.com/#{my_url.shortcut}" %></td>
             <td><%= link_to "DELETE", url_path(my_url), :method => :delete, :data =>{ :confirm => 'Are You Sure You Want To Delete This?'}, :class => 'btn btn-danger' %> 
           </tr>
       <% end %>
