@@ -10,8 +10,8 @@
       <% @my_urls.each do |my_url| %>
           <tr>
             <td><%= my_url.target %></td>
-            <td><%= link_to "crunch-url.herokuapp.com/#{my_url.shortcut}", url_path(my_url.shortcut) %></td>
-            <td><%= link_to "DELETE", url_path(my_url), :method => :delete, :data =>{ :confirm => 'Are You Sure You Want To Delete This?'}, :class => 'btn btn-danger' %> 
+            <td><a href = "crunch-url.herokuapp.com/<%= my_url.shortcut %>"><%= "crunch.url.herokuapp.com/#{my_url.shortcut}" %></a> </td>
+            <td><%= link_to "DELETE", url_path(my_url), :method => :delete, :data =>{ :confirm => 'Are You Sure You Want To Delete This?'}, :class => 'btn btn-danger' %> </td>
           </tr>
       <% end %>
     <% end %>
