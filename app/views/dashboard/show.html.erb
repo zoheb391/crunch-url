@@ -1,18 +1,19 @@
-<h1> This is your dashboard <h1>
-
-<table>
-<td></td>
-
-<% if @my_urls.present? %>
-  <h2>My URLS</h2>
-  <% @my_urls.each do |my_url| %>
-    <%= my_url.target %>
-    <br />
-    <%= "localhost:3030/#{my_url.shortcut}" %>
-    <br />
-    <br />
-  <% end %>
-<% end %>
-
-
-</table>
+<div class = "col-xs-10 col-xs-offset-4">
+  <table>
+    <caption><center><h3>My URLs</h3></center></caption>
+      <tr>
+          <td><b>Target URL</b></td>
+          <td><b>Shortcut</b></td>
+          <td><b>Delete</b></td>
+      </tr>
+    <% if @my_urls.present? %>
+      <% @my_urls.each do |my_url| %>
+          <tr>
+            <td><%= my_url.target %></td>
+            <td><%= "localhost:3030/#{my_url.shortcut}" %></td>
+            <td><%= link_to "DELETE", url_path(my_url), :method => :delete, :data =>{ :confirm => 'Are You Sure You Want To Delete This?'}, :class => 'btn btn-danger' %> 
+          </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

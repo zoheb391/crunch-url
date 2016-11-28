@@ -23,11 +23,35 @@ body {
   box-shadow: 1px 1px 2px 0 #d0d0d0;
   background: #fff;
   border: 1px solid #ccc;
-  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  background-color: rgba(0,0,0,0.2);
   padding-bottom: 1px;
   margin-top: 50px;
 }
+.white-box{
+    -moz-box-shadow:1px 1px 2px 0 #d0d0d0;
+    -webkit-box-shadow:1px 1px 2px 0 #d0d0d0;
+  box-shadow:1px 1px 2px 0 #d0d0d0;
+  background:#fff;
+  border:1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top:10px;
+  margin-bottom:15px;
+  padding:20px;
+  margin-top: 50px;
+ }
+
 
 .welcome {
   padding-bottom: 20px;
 }
+
+.table {
+    margin: 50px auto;
+    border-collapse: collapse;
+    align-self: center;
+    font-size: 20px;
+  }
+  table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+  }

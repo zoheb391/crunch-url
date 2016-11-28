@@ -23,6 +23,15 @@ class UrlsController < ApplicationController
     end
   end
 
+  def destroy
+    @url = Url.find(params[:id])
+    if @url.user != current_user
+      return render :text => 'Not Allowed', :status => :forbidden
+    end
+    @url.destroy
+    redirect_to dashboard_path(current_user)
+  end
+
   private
 
   def url_params
